@@ -38,8 +38,11 @@
             *ngIf = "contactFormControlGroup.get('senderEmailFormControl')?.hasError('email')">
             Kindly enter a valid email address.
         </small>
+        <small class = "text-danger"
+            *ngIf = "contactFormControlGroup.get('senderEmailFormControl')?.hasError('validateEmailDomain')">
+            This email provider is not allowd, kindly use another.
+        </small>
     </div>
-
 
     <!-- Message Field -->
     <div class = "mb-3">
