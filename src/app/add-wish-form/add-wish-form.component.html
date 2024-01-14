@@ -1,0 +1,11 @@
+<form>
+    <label for="exampleInputPassword1">Wish List Item/label</label>
+    <input type="text" name="new-wish-item" class="form-control" id="exampleInputPassword1" [(ngModel)] = 'newWishItemText'>
+    <button 
+     class="col-auto"  
+     type="submit" 
+     class="btn btn-primary"
+     (click) = "$event.preventDefault(); addNewWishItem()"
+     >Submit
+    </button>
+</form>
