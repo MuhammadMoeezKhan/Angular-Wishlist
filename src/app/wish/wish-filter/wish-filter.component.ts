@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { WishItem } from '../../shared/models/wishItem';
+import { WishItem } from '../../../shared/models/wishItem';
 
 const filters = [
   (item: WishItem) => {return item},

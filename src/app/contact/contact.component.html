@@ -1,0 +1,69 @@
+<form 
+    class = "container p-5"
+    [formGroup] = "contactFormControlGroup"
+    (ngSubmit) = "$event.preventDefault(); handleFormSubmit();">
+
+    <!-- Name Field -->
+    <div class = "mb-3">
+        <label class = "form-label">Your Name</label>
+        <input type = "text" class = "form-control"
+            formControlName = "senderNameFormControl">
+    </div>
+
+    <div *ngIf = "contactFormControlGroup.get('senderNameFormControl')?.invalid &&
+                  (contactFormControlGroup.get('senderNameFormControl')?.dirty ||
+                   contactFormControlGroup.get('senderNameFormControl')?.touched)">
+        <small class = "text-danger"
+            *ngIf = "contactFormControlGroup.get('senderNameFormControl')?.hasError('required')">
+            This field is required.
+        </small>
+    </div>
+
+
+    <!-- Email Field -->
+    <div class = "mb-3">
+        <label class = "form-label">Your Email Address</label>
+        <input type = "email" class = "form-control"
+            formControlName = "senderEmailFormControl">
+    </div>
+
+    <div *ngIf = "contactFormControlGroup.get('senderEmailFormControl')?.invalid &&
+    (contactFormControlGroup.get('senderEmailFormControl')?.dirty ||
+     contactFormControlGroup.get('senderEmailFormControl')?.touched)">
+        <small class = "text-danger"
+            *ngIf = "contactFormControlGroup.get('senderEmailFormControl')?.hasError('required')">
+            This field is required.
+        </small>
+        <small class = "text-danger"
+            *ngIf = "contactFormControlGroup.get('senderEmailFormControl')?.hasError('email')">
+            Kindly enter a valid email address.
+        </small>
+    </div>
+
+
+    <!-- Message Field -->
+    <div class = "mb-3">
+        <label class = "form-label">Message</label>
+        <textarea rows = "3" class = "form-control"
+            formControlName = "senderMessageFormControl"></textarea>
+    </div>
+
+    <div *ngIf = "contactFormControlGroup.get('senderMessageFormControl')?.invalid &&
+    (contactFormControlGroup.get('senderMessageFormControl')?.dirty ||
+     contactFormControlGroup.get('senderMessageFormControl')?.touched)">
+        <small class = "text-danger"
+            *ngIf = "contactFormControlGroup.get('senderMessageFormControl')?.hasError('required')">
+            This field is required.
+        </small>
+        <small class = "text-danger"
+            *ngIf = "contactFormControlGroup.get('senderMessageFormControl')?.hasError('minlength')">
+            Kindly enter a message of atleast 10 characters.
+        </small>
+    </div>
+
+
+    <!-- Button -->
+    <div class = "mb-3">
+        <button type = "submit" class = "btn btn-primary" [disabled] = "contactFormControlGroup.invalid" >Send Message</button>
+    </div>
+</form> 
